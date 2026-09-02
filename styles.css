@@ -29,6 +29,7 @@ nav.top .btn{padding:9px 18px; font-size:14px}
 .hero h1{font-size:clamp(34px,5.4vw,54px); font-weight:900; letter-spacing:-1.4px; margin:14px 0 16px}
 .hero p.sub{font-size:18px; color:var(--muted); max-width:46ch; margin:0 0 26px}
 .hero .ctas{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+.hero-img{width:100%; max-width:460px; margin:0 auto; display:block; filter:drop-shadow(0 26px 50px rgba(28,20,10,.18))}
 .phone{width:290px; margin:0 auto; background:#111; border-radius:44px; padding:12px; box-shadow:0 30px 60px rgba(28,20,10,.22)}
 .screen{background:var(--cream-top); border-radius:34px; padding:18px 14px 22px; min-height:520px}
 .screen h3{font-size:22px; font-weight:900; margin:2px 4px 12px}
@@ -107,7 +108,8 @@ footer a{color:var(--muted)}
   .hero .wrap,.split{grid-template-columns:1fr}
   .steps,.grid6{grid-template-columns:1fr}
   .gallery{grid-template-columns:repeat(3,1fr)}
-  .phone{margin-top:10px}
+  .hero-img{width:100%; max-width:460px; margin:0 auto; display:block; filter:drop-shadow(0 26px 50px rgba(28,20,10,.18))}
+.phone{margin-top:10px}
   nav.top a.nl{display:none}
 }
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
