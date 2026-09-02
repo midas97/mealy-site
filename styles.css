@@ -47,8 +47,12 @@ nav.top .btn{padding:9px 18px; font-size:14px}
 .ringchip b{color:var(--green); font-family:Nunito; font-size:12.5px}
 .band{border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--card); padding:26px 0}
 .band .eyebrow{display:block; text-align:center; margin-bottom:16px; color:var(--muted)}
-.logos{display:flex; flex-wrap:wrap; gap:14px 26px; justify-content:center; align-items:center}
-.logos img{height:40px; width:auto; border-radius:10px; border:1px solid var(--border); background:#fff}
+/* Supermarket carousel: an endless slide with soft fade clips on both edges. */
+.logo-marquee{overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent); mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.logo-track{display:flex; align-items:center; gap:56px; width:max-content; animation:marquee 32s linear infinite}
+.logo-track img{height:80px; width:auto; border-radius:16px; border:1px solid var(--border); background:#fff}
+.logo-marquee:hover .logo-track{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 section.sec{padding:76px 0}
 .sec-head{text-align:center; max-width:62ch; margin:0 auto 44px}
 .sec-head h2{font-size:clamp(26px,3.6vw,38px); font-weight:900; letter-spacing:-.8px; margin:10px 0 12px}
@@ -107,3 +111,20 @@ footer a{color:var(--muted)}
   nav.top a.nl{display:none}
 }
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+
+
+/* Scroll reveals: sections drift up as they enter; grids stagger their cards. */
+.reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1; transform:none}
+.stagger > *{opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease}
+.stagger.in > *{opacity:1; transform:none}
+.stagger.in > *:nth-child(2){transition-delay:.08s}
+.stagger.in > *:nth-child(3){transition-delay:.16s}
+.stagger.in > *:nth-child(4){transition-delay:.24s}
+.stagger.in > *:nth-child(5){transition-delay:.32s}
+.stagger.in > *:nth-child(6){transition-delay:.4s}
+.stagger.in > *:nth-child(n+7){transition-delay:.48s}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.stagger > *{opacity:1; transform:none; transition:none}
+  .logo-track{animation:none}
+}
